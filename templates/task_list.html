@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>{% block title %}Recipe List{% endblock %}</title>
+    {% block styles %}{% endblock %}
+</head>
+<body>
+    <div id="content">
+        {% block content %}
+        <h1>Recipe List</h1>
+        <ul>
+            {% for recipe in recipes %}
+                <li>
+                    <h2>{{ recipe.name }}</h2>
+                    <ul>
+                        {% for ingredient in recipe.ingredients %}
+                            <li>{{ ingredient.name }} : {{ ingredient.quantity }}</li>
+                        {% endfor %}
+                    </ul>
+                    <a href="{{ recipe.link }}">View {{ recipe.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        {% endblock %}
+    </div>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
