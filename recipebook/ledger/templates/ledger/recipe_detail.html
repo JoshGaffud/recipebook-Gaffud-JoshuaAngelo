@@ -1,0 +1,21 @@
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ recipe.recipe_name }}</title>
+</head>
+<body>
+    <header>
+        <h1>{{ recipe.recipe_name }}</h1>
+    </header>
+    
+    <h2>Ingredients:</h2>
+    <ul>
+        {% for item in recipe.ingredients.all %}
+            <li>
+                {{ item.recipe_quantity }} of {{ item.recipe_ingredient.ingredient_name }}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href = "{% url 'ledger:recipe-list' %}">Recipe List</a>
+</body>
+</html>
