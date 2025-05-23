@@ -1,0 +1,7 @@
+<h1>Upload Image for {{ recipe.recipe_name }}</h1>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Add</button>
+</form>
+<a href="{% url 'ledger:recipe-detail' recipe.pk %}">Back to Recipe</a>

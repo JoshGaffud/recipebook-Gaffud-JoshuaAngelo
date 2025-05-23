@@ -8,6 +8,11 @@
     </header>
     
     <h2>Recipes</h2>
+
+    {% if user.is_authenticated %}
+        <p><a href="{% url 'ledger:recipe-add' %}">Add New Recipe</a></p>
+    {% endif %}
+    
     <ul>
         {% for recipe in recipes %}
             <li>
